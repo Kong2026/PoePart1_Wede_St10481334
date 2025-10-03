@@ -1,0 +1,98 @@
+
+/* style.css - External stylesheet for Gorilla Business Group */
+/* Reset (simple) */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body { 
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; 
+  font-size: 16px; color: #222; background-color: #fafafa; line-height: 1.5;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+/* Root variables (brand palette) */
+:root{
+  --brand-dark: #1f2937;     /* charcoal */
+  --brand-green: #1f8a3d;    /* Gorilla green */
+  --brand-acc: #d9534f;      /* accent red */
+  --muted: #6b7280;          /* muted text */
+  --card-bg: #ffffff;
+  --container-width: 1200px;
+}
+
+/* Layout helper */
+.container{
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header / Navigation */
+.header{ background: linear-gradient(90deg, rgba(31,138,61,0.06), rgba(31,41,55,0.02)); border-bottom: 1px solid #e6eef0; }
+.navbar{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.brand{ display:flex; align-items:center; gap:.6rem; }
+.brand h1{ font-size:1.25rem; color:var(--brand-dark); }
+.nav-links{ display:flex; gap:1rem; list-style:none; }
+.nav-links a{ color:var(--brand-dark); text-decoration:none; padding:.5rem .75rem; border-radius:.35rem; font-weight:600; }
+.nav-links a:hover, .nav-links a:focus{ background:#f0fdf4; color:var(--brand-green); outline:none; transform:translateY(-1px); }
+
+/* Hero */
+.hero{ display:grid; grid-template-columns: 1fr 480px; gap:2rem; align-items:center; padding:3rem 0; }
+.hero .hero-text h2{ font-size:2.25rem; color:var(--brand-dark); margin-bottom:.5rem; line-height:1.05; }
+.hero .hero-text p{ color:var(--muted); margin-bottom:1.25rem; }
+.cta-group{ display:flex; gap:.75rem; }
+.btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1rem; border-radius:.5rem; text-decoration:none; font-weight:600; }
+.btn-quote{ background:var(--brand-green); color:white; box-shadow: 0 6px 18px rgba(31,138,61,0.12); }
+.btn-services{ border:1px solid #e6eef0; color:var(--brand-dark); background:transparent; }
+
+/* Hero image card */
+.hero-image-card{ background:var(--card-bg); border-radius:12px; overflow:hidden; box-shadow:0 8px 24px rgba(15,23,42,0.06); }
+.hero-image-card img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Main sections grid */
+.main-grid{ display:grid; grid-template-columns: 2fr 1fr; gap:2rem; margin-top:2rem; }
+.card{ background:var(--card-bg); padding:1.25rem; border-radius:10px; box-shadow:0 6px 18px rgba(15,23,42,0.04); }
+
+/* Services listing */
+.services-list{ display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+.service-item{ padding:1rem; border-radius:8px; border:1px solid #f1f5f9; }
+
+/* About team */
+.team-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+.team-member{ display:flex; gap:.75rem; align-items:center; }
+
+/* Forms */
+form label{ display:block; font-weight:600; margin-bottom:.25rem; }
+form input, form textarea, form select{ width:100%; padding:.65rem; border:1px solid #e6eef0; border-radius:6px; margin-bottom:1rem; }
+button[type="submit"]{ background:var(--brand-dark); color:white; padding:.75rem 1rem; border-radius:8px; border:none; cursor:pointer; }
+button[type="submit"]:hover{ background:var(--brand-green); }
+
+/* Footer */
+.footer{ margin-top:2.5rem; padding:1.25rem 0; text-align:center; color:var(--muted); font-size:.95rem; }
+
+/* Utility */
+.kv{ color:var(--muted); font-size:.95rem; }
+
+/* Responsive - Breakpoints */
+/* Desktop-first, then adjust down */
+@media (max-width: 1050px){
+  .hero{ grid-template-columns: 1fr; }
+  .main-grid{ grid-template-columns: 1fr; }
+  .services-list{ grid-template-columns: 1fr; }
+  .team-grid{ grid-template-columns: 1fr; }
+}
+
+/* Tablet / Mobile refinements */
+@media (max-width: 600px){
+  :root{ --container-width: 100%; }
+  body{ font-size:15px; }
+  .hero .hero-text h2{ font-size:1.6rem; }
+  .brand h1{ font-size:1rem; }
+  .nav-links{ display:none; }
+  /* simple mobile nav button visible (JS optional) */
+}
+
+/* Accessibility focus states */
+a:focus, button:focus, input:focus, textarea:focus{ outline: 3px solid rgba(31,138,61,0.14); outline-offset:3px; }
+
+/* Small helper for image responsiveness */
+.responsive-img{ max-width:100%; height:auto; display:block; }
