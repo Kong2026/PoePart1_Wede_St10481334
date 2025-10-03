@@ -4,7 +4,11 @@ nav a { margin-right:1rem; color:#fff; text-decoration:none; }
 .hero { background:#eee; padding:2rem; text-align:center; }
 .btn { background:#2f855a; color:#fff; padding:.5rem 1rem; border-radius:6px; text-decoration:none; }
 footer { background:#333; color:#fff; text-align:center; padding:1rem; margin-top:2rem; }
-.img-figure { max-width:100%; border-radius:8px; }
+.img-figure { max-width:100%; height:auto; border-radius:8px; object-fit:cover; aspect-ratio: 3 / 2; }
+img { max-width:100%; height:auto; }
 form { display:flex; flex-direction:column; gap:.6rem; max-width:400px; margin:auto; }
 input, textarea, button { padding:.5rem; border-radius:6px; border:1px solid #ccc; }
 button { background:#2f855a; color:#fff; border:none; cursor:pointer; }
+
+/* Improve rendering performance of below-the-fold sections */
+.content-deferred { content-visibility: auto; contain-intrinsic-size: 1px 500px; }
