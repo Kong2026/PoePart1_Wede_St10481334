@@ -1,0 +1,16 @@
+name: Size Budgets
+
+on:
+  pull_request:
+  push:
+    branches: [ main, master, develop, '**/optimize**' ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run gzip budgets
+        run: |
+          sudo apt-get update && sudo apt-get install -y gzip
+          bash ./scripts/check_gzip_budgets.sh
